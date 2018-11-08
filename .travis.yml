@@ -1,17 +1,25 @@
 language: node_js
+
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
+
+sudo: false
+
 cache:
+  npm: true
   directories:
     - node_modules
-notifications:
-  email: false
+    
 node_js:
   - node
+
+install:
+  - npm install
+
 script:
   - npm run test:prod && npm run build
+
 after_success:
   - npm run report-coverage
   - npm run deploy-docs
