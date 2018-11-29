@@ -1,0 +1,5 @@
+{
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}

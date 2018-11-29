@@ -10,7 +10,7 @@
 
 <!-- [![codebeat badge](https://codebeat.co/badges/ab47d01b-9a17-43e0-b235-ace83771923d)](https://codebeat.co/projects/github-com-lukas-tr-vue-transition-collection-master) -->
 
-Easy to use transitions for your vue projects
+Easy to use transitions for your vue project.
 
 ## Usage
 
@@ -19,11 +19,32 @@ npm i vue-transition-collection
 ```
 
 ```javascript
-import VueTransitionCollection from 'vue-transition-collection'
+import VueTransitionCollection from "vue-transition-collection"
+
+Vue.use(VueTransitionCollection)
 ```
 
-TODO
+```html
+<vtc-fade mode="out-in" direction="right" duration="1000" delay="0">
+  <div :key="someKey">some content</div>
+</vtc-fade>
+```
 
-## Features
+## Available transitions
 
-- TODO
+- `vtc-fade`
+- `vtc-zoom`
+- `vtc-bounce`
+- `vtc-flip`
+- `vtc-fade-big`
+- `vtc-rotate`
+- `vtc-slide`
+
+## Available props
+
+- group: `boolean` - Use `<transition-group>` instead of `<transition>`
+- mode: `"in-out"|"out-in"` - The transition mode
+- direction: `"right"|"left"|"up"|"down"|"toggle"` - The direction of the transition
+- inverse: `boolean` - Switch left/right and up/down
+- delay: `number` - The delay until the transition starts
+- duration: `number` - The duration of the transition

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transitions Testing "bounce" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "bounce" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "fade" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "fade" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "fadeBig" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "fadeBig" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "flip" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "flip" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "rotate" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "rotate" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "slide" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "slide" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
+
+exports[`Transitions Testing "zoom" transition matches snapshot 1`] = `"<template></template>"`;
+
+exports[`Transitions Testing "zoom" transition uses props 1`] = `"<template inverse=\\"true\\" direction=\\"toggle\\" group=\\"true\\"></template>"`;
