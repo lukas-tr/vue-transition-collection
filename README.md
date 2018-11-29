@@ -12,6 +12,10 @@
 
 Easy to use transitions for your vue project.
 
+## Demo
+
+[Demo](https://vue-transition-collection.netlify.com/)
+
 ## Usage
 
 ```bash
