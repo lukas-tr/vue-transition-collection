@@ -1,41 +1,41 @@
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
 // import "core-js/fn/array.find" ...
 
-import * as Vue from "vue"
+import * as Vue from "vue";
 
 interface PluginOptions {}
 
 interface Plugin {
-  install: Vue.PluginFunction<PluginOptions>
-  generateComponents(Vue: Vue.VueConstructor<Vue.default>)
-  applyDurationAndDelay: typeof applyDurationAndDelay
+  install: Vue.PluginFunction<PluginOptions>;
+  generateComponents (Vue: Vue.VueConstructor<Vue.default>);
+  applyDurationAndDelay: typeof applyDurationAndDelay;
 }
 
 interface DirectionDescription {
-  enter: string
-  leave: string
+  enter: string;
+  leave: string;
 }
 
 interface TransitionDescription {
-  displayName: string
-  left?: DirectionDescription
-  right?: DirectionDescription
-  down?: DirectionDescription
-  up?: DirectionDescription
-  toggle?: DirectionDescription
+  displayName: string;
+  left?: DirectionDescription;
+  right?: DirectionDescription;
+  down?: DirectionDescription;
+  up?: DirectionDescription;
+  toggle?: DirectionDescription;
 }
 
 interface TransitionDescriptions {
-  fade: TransitionDescription
-  fadeBig: TransitionDescription
-  zoom: TransitionDescription
-  bounce: TransitionDescription
-  flip: TransitionDescription
-  rotate: TransitionDescription
-  slide: TransitionDescription
+  fade: TransitionDescription;
+  fadeBig: TransitionDescription;
+  zoom: TransitionDescription;
+  bounce: TransitionDescription;
+  flip: TransitionDescription;
+  rotate: TransitionDescription;
+  slide: TransitionDescription;
 }
 
-type Directions = "toggle" | "left" | "right" | "up" | "down"
+type Directions = "toggle" | "left" | "right" | "up" | "down";
 
 const transitionDescriptions: TransitionDescriptions = {
   fade: {
@@ -199,7 +199,7 @@ const transitionDescriptions: TransitionDescriptions = {
       leave: "slideOutDown"
     }
   }
-}
+};
 
 const applyDurationAndDelay = ({
   duration,
@@ -208,9 +208,9 @@ const applyDurationAndDelay = ({
   duration: number | string
   delay: number | string
 }) => (el: HTMLElement) => {
-  el.style.animationDuration = el.style.webkitAnimationDuration = duration + "ms"
-  el.style.animationDelay = el.style.webkitAnimationDelay = delay + "ms"
-}
+  el.style.animationDuration = el.style.webkitAnimationDuration = duration + "ms";
+  el.style.animationDelay = el.style.webkitAnimationDelay = delay + "ms";
+};
 
 const createSimpleTransition = (
   vue: Vue.VueConstructor<Vue.default>,
@@ -246,18 +246,18 @@ const createSimpleTransition = (
         default: 1000
       }
     },
-    render(h: Vue.CreateElement, { props, listeners, slots, data, children }): Vue.VNode {
-      const tag = `transition${(props.group && "-group") || ""}`
+    render (h: Vue.CreateElement, { props, listeners, slots, data, children }): Vue.VNode {
+      const tag = `transition${(props.group && "-group") || ""}`;
       const opposites = {
         up: "down",
         down: "up",
         left: "right",
         right: "left",
         toggle: "toggle"
-      }
+      };
       let currentDirection = ((props.inverse && opposites[props.direction]) ||
-        props.direction) as Directions
-      const transitionClasses = description[currentDirection] as DirectionDescription
+        props.direction) as Directions;
+      const transitionClasses = description[currentDirection] as DirectionDescription;
       const transitionProps: any = {
         props: {
           name,
@@ -270,14 +270,14 @@ const createSimpleTransition = (
           beforeEnter: applyDurationAndDelay({ duration: props.duration, delay: props.delay }),
           ...listeners
         }
-      }
-      return h(tag, transitionProps, children)
+      };
+      return h(tag, transitionProps, children);
     }
-  })
-}
+  });
+};
 
 const VueTransitionCollection: Plugin = {
-  generateComponents(vue: Vue.VueConstructor<Vue.default>) {
+  generateComponents (vue: Vue.VueConstructor<Vue.default>) {
     return {
       fade: createSimpleTransition(vue, transitionDescriptions.fade),
       zoom: createSimpleTransition(vue, transitionDescriptions.zoom),
@@ -286,19 +286,19 @@ const VueTransitionCollection: Plugin = {
       fadeBig: createSimpleTransition(vue, transitionDescriptions.fadeBig),
       rotate: createSimpleTransition(vue, transitionDescriptions.rotate),
       slide: createSimpleTransition(vue, transitionDescriptions.slide)
-    }
+    };
   },
-  install(vue, args) {
-    const components = this.generateComponents(vue)
-    vue.component("vtc-fade", components.fade)
-    vue.component("vtc-zoom", components.zoom)
-    vue.component("vtc-bounce", components.bounce)
-    vue.component("vtc-flip", components.flip)
-    vue.component("vtc-fade-big", components.fadeBig)
-    vue.component("vtc-rotate", components.rotate)
-    vue.component("vtc-slide", components.slide)
+  install (vue, args) {
+    const components = this.generateComponents(vue);
+    vue.component("vtc-fade", components.fade);
+    vue.component("vtc-zoom", components.zoom);
+    vue.component("vtc-bounce", components.bounce);
+    vue.component("vtc-flip", components.flip);
+    vue.component("vtc-fade-big", components.fadeBig);
+    vue.component("vtc-rotate", components.rotate);
+    vue.component("vtc-slide", components.slide);
   },
   applyDurationAndDelay
-}
+};
 
-export default VueTransitionCollection
+export default VueTransitionCollection;
