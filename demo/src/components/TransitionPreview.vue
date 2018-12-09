@@ -116,6 +116,7 @@ export default class TransitionPreview extends Vue {
   private selectedMode = this.modes[0]
   private reversed = false
   private importCode = `import VueTransitionCollection from "vue-transition-collection";
+import "animate.css/animate.min.css";
 
 Vue.use(VueTransitionCollection);`
 

@@ -3,7 +3,7 @@
 
 import * as Vue from "vue";
 
-interface PluginOptions {}
+interface PluginOptions { }
 
 interface Plugin {
   install: Vue.PluginFunction<PluginOptions>;
@@ -208,8 +208,8 @@ const applyDurationAndDelay = ({
   duration: number | string
   delay: number | string
 }) => (el: HTMLElement) => {
-  el.style.animationDuration = el.style.webkitAnimationDuration = duration + "ms";
-  el.style.animationDelay = el.style.webkitAnimationDelay = delay + "ms";
+  el.style.animationDuration = duration + "ms";
+  el.style.animationDelay = delay + "ms";
 };
 
 const createSimpleTransition = (

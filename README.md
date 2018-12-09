@@ -16,14 +16,19 @@ Easy to use transitions for your vue project.
 
 [Demo](https://vue-transition-collection.netlify.com/)
 
+## Typedoc
+
+[Typedoc](https://lukas-tr.github.io/vue-transition-collection/)
+
 ## Usage
 
 ```bash
-npm i vue-transition-collection
+npm i vue-transition-collection animate.css
 ```
 
 ```javascript
 import VueTransitionCollection from "vue-transition-collection"
+import "animate.css/animate.min.css";
 
 Vue.use(VueTransitionCollection)
 ```
